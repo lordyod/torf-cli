@@ -178,11 +178,15 @@ def _verify_mode(ui, cfg):
     if path[-1] == os.path.sep:
         path = os.path.join(path, torrent.metainfo['info'].get('name', ''))
 
-    ui.show_torrent(torrent)
-    ui.info('Path', path)
+    quiet = cfg['quiet']
+    if quiet is False:
+        ui.show_torrent(torrent)
+        ui.info('Path', path)
 
     try:
-        ui.info('Info Hash', torrent.infohash)
+        quiet = cfg['quiet']
+        if quiet is False:
+            ui.info('Info Hash', torrent.infohash)
     except torf.TorfError as e:
         raise _errors.Error(e)
 

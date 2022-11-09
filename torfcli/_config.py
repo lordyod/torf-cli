@@ -89,6 +89,7 @@ ARGUMENTS
     --human, -u            Force human-readable output
     --nohuman, -U          Force machine-readable output
     --verbose, -v          Increase verbosity
+    --quiet, -q            Disable all printed output (read exit code for status)
     --help, -h             Show this help screen and exit
     --version              Show version number and exit
 """.strip()
@@ -144,6 +145,7 @@ _cliparser.add_argument('--metainfo', '-m', action='store_true')
 _cliparser.add_argument('--human', '-u', action='store_true')
 _cliparser.add_argument('--nohuman', '-U', action='store_true')
 _cliparser.add_argument('--verbose', '-v', action='count', default=0)
+_cliparser.add_argument('--quiet', '-q', action='store_true')
 _cliparser.add_argument('--help', '-h', action='store_true')
 _cliparser.add_argument('--version', action='store_true')
 _cliparser.add_argument('--debug-file')

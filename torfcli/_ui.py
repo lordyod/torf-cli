@@ -44,6 +44,11 @@ class UI:
         else:
             return False
 
+    def _quiet(self):
+        if self._cfg.get('quiet'):
+            return True
+        return False
+
     @property
     def cfg(self):
         return self._cfg
@@ -78,6 +83,8 @@ class UI:
         return self._fmt.infos(pairs)
 
     def show_torrent(self, torrent):
+        if self._quiet():
+            return
         info = self.info
         if torrent.name is not None:
             info('Name', torrent.name)
