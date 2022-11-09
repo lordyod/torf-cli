@@ -403,6 +403,8 @@ class _StatusReporterBase():
                         piece_index, piece_hash, exception):
         if exception:
             self._ui.info('Error', self._format_error(exception, torrent))
+            if self._ui._cfg.get('fast'):
+                return False
         self._update_progress_info_hashing(torrent, filepath, pieces_done, pieces_total)
         progress_lines = self._get_hashing_progress_lines(self._info)
         self._ui.info('Progress', progress_lines, newline=False)

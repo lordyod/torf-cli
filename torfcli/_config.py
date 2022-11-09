@@ -82,6 +82,7 @@ ARGUMENTS
     --noconfig, -F         Ignore configuration file
     --profile, -z PROFILE  Use options from PROFILE
     --threads THREADS      Number of threads to use for hashing
+    --fast                 In verify mode, abort on first error
 
   TEXT OUTPUT
     --json, -j             Print output as JSON object
@@ -139,6 +140,7 @@ _cliparser.add_argument('--config', '-f')
 _cliparser.add_argument('--noconfig', '-F', action='store_true')
 _cliparser.add_argument('--profile', '-z', default=[], action='append')
 _cliparser.add_argument('--threads', type=int, default=0)
+_cliparser.add_argument('--fast', action='store_true')
 
 _cliparser.add_argument('--json', '-j', action='store_true')
 _cliparser.add_argument('--metainfo', '-m', action='store_true')
